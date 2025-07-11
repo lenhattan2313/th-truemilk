@@ -1,3 +1,4 @@
+export const revalidate = 60;
 import { dehydrate } from "@tanstack/react-query";
 import { getQueryClient } from "@/lib/getQueryClient";
 import { getProducts } from "@queries/getProducts";
@@ -23,7 +24,9 @@ export default async function ProductsPage() {
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
       <Navbar />
+
       <main className="flex-1 container mx-auto px-4 py-8">
+        <p>Page generated at: {new Date().toLocaleString()}</p>
         <h1 className="text-2xl font-bold mb-6 text-center">All Products</h1>
         <HydrationBoundaryProvider dehydratedState={dehydratedState}>
           <ProductsClient />
