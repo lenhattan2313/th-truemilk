@@ -2,24 +2,24 @@ export const revalidate = 30;
 // export const dynamicParams = false; //false will be not found for other params
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getProductById, getProducts } from "@queries/getProducts";
+import { getProductBySlug, getProducts } from "@queries/getProducts";
 import { Header } from "@shared/Header";
 import { Footer } from "@shared/Footer";
 import { Navbar } from "@shared/Navbar";
 
 interface ProductDetailPageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }
 // This tells Next.js which product IDs to prebuild and enable ISR for
 export async function generateStaticParams() {
   const products = await getProducts();
-  return products.map((product) => ({ id: product.id })).slice(0, 5); //regenerate 5 pages
+  return products.map((product) => ({ slug: product.slug })).slice(0, 5); //regenerate 5 pages
 }
 export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
-  const id = (await params).id;
-  const product = await getProductById(id);
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
   if (!product) return notFound();
 
   return (

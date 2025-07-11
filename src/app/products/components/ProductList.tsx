@@ -13,7 +13,7 @@ export function ProductList({ products }: { products: Product[] }) {
 function renderProductCard(product: Product) {
   return (
     <Link
-      href={`/products/${product.id}`}
+      href={`/products/${product.slug}`}
       className="block"
       tabIndex={0}
       aria-label={`View details for ${product.name}`}
