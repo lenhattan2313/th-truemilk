@@ -13,8 +13,11 @@ export function Navbar() {
         <Link href="/checkout" className="hover:underline">
           Checkout
         </Link>
-        <Link href="/auth/login" className="hover:underline">
+        <Link href="/login" className="hover:underline">
           Login
+        </Link>
+        <Link href="/sign-up" className="hover:underline">
+          Sign Up
         </Link>
         <Link href="/profile" className="hover:underline">
           Profile

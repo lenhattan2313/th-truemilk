@@ -22,8 +22,11 @@ export default function Home() {
           <Link href="/checkout" className="btn-primary">
             Checkout
           </Link>
-          <Link href="/auth/login" className="btn-primary">
+          <Link href="/login" className="btn-primary">
             Login
+          </Link>
+          <Link href="/sign-up" className="btn-primary">
+            Sign Up
           </Link>
           <Link href="/profile" className="btn-primary">
             Profile
